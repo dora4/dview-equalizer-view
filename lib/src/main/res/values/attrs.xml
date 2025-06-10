@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="DoraEqualizerView">
+        <attr name="dview_ev_bandsNum" format="integer"/>
+    </declare-styleable>
+</resources>
