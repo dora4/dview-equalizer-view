@@ -2,6 +2,9 @@ dview-equalizer-view
 ![Release](https://jitpack.io/v/dora4/dview-equalizer-view.svg)
 --------------------------------
 
+#### 卡片
+![DORA视图 声波均衡器](https://github.com/user-attachments/assets/8c3cc497-8bbe-4bfa-ba6e-1169888272ec)
+
 #### Gradle依赖配置
 
 ```groovy
