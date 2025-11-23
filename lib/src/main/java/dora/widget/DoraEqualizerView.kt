@@ -165,7 +165,7 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
             }
             canvas.drawCircle(cx, cy, radius, nodePaint) // 绘制大圆
             canvas.drawCircle(cx, cy, radius - 6, nodeConnectPaint) // 绘制小圆
-            paint.color = Color.GRAY //下面的线的颜色
+            paint.color = Color.GRAY // 下面的线的颜色
             paint.strokeWidth = 6f
             canvas.drawLine(cx, cy + radius + 3, stepSize * i.toFloat(), measuredHeight.toFloat(),
                 paint
