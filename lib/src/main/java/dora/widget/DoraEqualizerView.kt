@@ -81,7 +81,7 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
     fun setOnUpdateDecibelListener(l: OnUpdateDecibelListener) {
         onUpdateDecibelListener = l
     }
-    
+
     fun setThemeColor(color: Int) {
         themeColor = color
         nodePaint.color = themeColor
@@ -170,7 +170,7 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
             canvas.drawLine(cx, cy + radius + 3, stepSize * i.toFloat(), measuredHeight.toFloat(),
                 paint
             )
-            paint.color = Color.BLACK // 上面的线的颜色
+            paint.color = themeColor // 上面的线的颜色
             canvas.drawLine(cx, cy - radius - 3, stepSize * i.toFloat(), 0f, paint)
             val text = if (freqs.isNotEmpty()) formatHz(freqs[i - 1]) else formatHz(0)
             val textWidth = freqPaint.measureText(text)
