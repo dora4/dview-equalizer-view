@@ -23,6 +23,7 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
     private lateinit var nodeConnectPaint: Paint
     private lateinit var freqPaint: TextPaint
     private lateinit var points: Array<PointF?>
+    private var themeColor = Color.BLACK
     private var state = STATE_NONE
     private var decibels: IntArray = intArrayOf()
     private lateinit var freqs: IntArray
@@ -36,6 +37,7 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
 
     private fun initAttrs(context: Context, attrs: AttributeSet?) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.DoraEqualizerView)
+        themeColor = a.getColor(R.styleable.DoraEqualizerView_dview_ev_themeColor, themeColor)
         bandsNum = a.getInt(R.styleable.DoraEqualizerView_dview_ev_bandsNum, 5)
         if (bandsNum < 1) {
             bandsNum = 1
@@ -79,6 +81,13 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
     fun setOnUpdateDecibelListener(l: OnUpdateDecibelListener) {
         onUpdateDecibelListener = l
     }
+    
+    fun setThemeColor(color: Int) {
+        themeColor = color
+        nodePaint.color = themeColor
+        nodeConnectPaint.color = themeColor
+        invalidate()
+    }
 
     fun setBandsNum(bandsNum: Int) {
         this.bandsNum = bandsNum
@@ -90,14 +99,14 @@ class DoraEqualizerView @JvmOverloads constructor(context: Context, attrs:
         paint.isAntiAlias = true
         nodePaint = Paint()
         nodePaint.isAntiAlias = true
-        nodePaint.color = Color.BLACK // 圆圈的颜色
+        nodePaint.color = themeColor // 圆圈的颜色
         nodePaint.strokeWidth = 6f
         nodePaint.style = Paint.Style.STROKE
         nodeConnectPaint = Paint()
         nodeConnectPaint.isAntiAlias = true
         nodeConnectPaint.strokeWidth = 50f
         nodeConnectPaint.style = Paint.Style.FILL
-        nodeConnectPaint.color = Color.BLACK // 圆圈填充的颜色和连线的颜色
+        nodeConnectPaint.color = themeColor // 圆圈填充的颜色和连线的颜色
         freqPaint = TextPaint(Paint.ANTI_ALIAS_FLAG)
         freqPaint.isFakeBoldText = true
         freqPaint.textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 10f, context.resources.displayMetrics)

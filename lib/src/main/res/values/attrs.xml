@@ -2,6 +2,7 @@
 
 <resources>
     <declare-styleable name="DoraEqualizerView">
+        <attr name="dview_ev_themeColor" format="color|reference"/>
         <attr name="dview_ev_bandsNum" format="integer"/>
     </declare-styleable>
 </resources>
